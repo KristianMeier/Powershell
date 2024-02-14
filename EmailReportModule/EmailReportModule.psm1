@@ -13,7 +13,6 @@ function New-EmailReport {
         }
         table {
             border-collapse: collapse;
-            table-layout: auto;
         }
         th, td {
             border: 1px solid #ddd;
@@ -24,13 +23,13 @@ function New-EmailReport {
             background-color: #f2f2f2;
         }
         .highlight {
-            color: red;
+            color: blue;
         }
     </style>
 "@
 
     # Generate table rows
-    $tableRows = $servers | ForEach-Object {
+    $tableRows = $servers | Sort-Object CPU | ForEach-Object {
         $cpuStyle = if ($_.CPU -lt 5 -and $_.CPU -ne $null) { 'highlight' } else { "" }
         $cpuValue = if ($_.CPU -ne $null) { "{0:N1}" -f $_.CPU } else { "N/A" }
         @"
