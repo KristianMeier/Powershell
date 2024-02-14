@@ -1,4 +1,4 @@
-Set-ExecutionPolicy Restricted
+Set-ExecutionPolicy Bypass
 
 if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
     Write-Host "You are not running PowerShell as an Administrator."

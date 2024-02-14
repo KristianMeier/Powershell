@@ -23,7 +23,7 @@ $css = @"
 
 $processesHtml =
 Get-Process |
-Select-Object -First 10 -Property Description, CPU, FileName | 
+Select-Object -First 10 -Property Description, @{ Name="CPU"; Expression={"{0:N1}" -f$_.CPU} }, FileName | 
 ConvertTo-Html -Head $css -PreContent "<h1>Process List</h1>" -Title "Process List"
 
 $processesHtml | Out-File process.html
