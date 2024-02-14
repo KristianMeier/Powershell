@@ -13,3 +13,4 @@ $htmlReport = New-EmailReport -servers $servers
 
 # Output to HTML file
 $htmlReport | Out-File "ServerStatusReport.html"
+

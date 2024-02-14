@@ -6,12 +6,15 @@ $servers = @(
     @{ Name = "Server3"; Status = "Offline"; CPU = $null },
     @{ Name = "Server1"; Status = "Online"; CPU = 2 },
     @{ Name = "Server2"; Status = "Online"; CPU = 4 },
-    @{ Name = "Server3"; Status = "Offline"; CPU = 8.1 }
+    @{ Name = "Server3"; Status = "Offline"; CPU = 8 }
 )
 
-$timestamp = Get-Date -Format "mmss"
+$keys = $servers[0].Keys
 
-$htmlReport = New-EmailReport -servers $servers
+$allKeys = @()
+foreach ($key in $keys) {
+    $allKeys += $key
+}
 
-# Output to HTML file
-$htmlReport | Out-File "ServerStatusReport_$timestamp.html"
+$allKeys
+$keys

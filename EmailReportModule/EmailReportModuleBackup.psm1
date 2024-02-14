@@ -41,7 +41,14 @@ function New-EmailReport {
 "@
     }
 
-    $tableheaders = $servers[0].Keys | ForEach-Object { "<td>$($_)</td>" }
+    $tableheaders =@"
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+"@
+    }
 
     # Construct HTML content
     $htmlContent = @"
@@ -53,9 +60,7 @@ function New-EmailReport {
     <body>
         <h4>Server Status Report</h4>
         <table>
-        <tr>
             $tableHeaders
-        </tr>
             $tableRows
         </table>
     </body>
