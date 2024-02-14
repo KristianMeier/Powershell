@@ -1,12 +1,12 @@
 # Get all drives that are of the FileSystem provider type
 
 ######
-### With Pipes
+# With Pipes
 ######
 
 Get-PSDrive -PSProvider FileSystem | Select-Object Name, Used, Free
 ######
-### Without Pipes
+# Without Pipes
 ######
 
 Write-Output "`n### SEPARATOR ###`n"

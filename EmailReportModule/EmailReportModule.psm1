@@ -1,6 +1,6 @@
 function New-EmailReport {
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [System.Collections.ArrayList]$servers
     )
 
@@ -30,8 +30,8 @@ function New-EmailReport {
 
     # Generate table rows
     $tableRows = $servers | Sort-Object CPU | ForEach-Object {
-        $cpuStyle = if ($_.CPU -lt 5 -and $_.CPU -ne $null) { 'highlight' } else { "" }
-        $cpuValue = if ($_.CPU -ne $null) { "{0:N1}" -f $_.CPU } else { "N/A" }
+        $cpuStyle = if ($_.CPU -lt 5 -and $null -ne $_.CPU) { 'highlight' } else { "" }
+        $cpuValue = if ($null -ne $_.CPU) { "{0:N1}" -f $_.CPU } else { "N/A" }
         @"
         <tr>
             <td>$($_.Name)</td>
@@ -41,7 +41,7 @@ function New-EmailReport {
 "@
     }
 
-    $tableheaders = $servers[0].Keys | ForEach-Object { "<td>$($_)</td>" }
+    $tableheaders = $servers[0].Keys | ForEach-Object { "<th>$($_)</th>" }
 
     # Construct HTML content
     $htmlContent = @"
