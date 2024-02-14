@@ -8,7 +8,6 @@ else {
     Write-Host "$date1 is the same as or later than $date2"
 }
 
-
 ### Seperation
 
 $startDate = Get-Date "2023-01-01"
