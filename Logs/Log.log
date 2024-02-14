@@ -1,0 +1,6 @@
+2024-02-13 17:54:47 [INFO] This is an informational message
+2024-02-13 17:54:47 [ERROR] This is an error message
+2024-02-13 17:56:31 [INFO] Hej
+2024-02-13 17:56:50 [INFO] Hej
+2024-02-13 17:57:45 [INFO] An error occurred: Cannot find path 'C:\NonExistentFile.txt' because it does not exist.
+2024-02-13 17:57:45 [INFO] Script Over

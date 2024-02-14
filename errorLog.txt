@@ -1,0 +1,10 @@
+RuntimeException: 
+Line |
+   3 |      1 / 0
+     |      ~~~~~
+     | Attempted to divide by zero.
+RuntimeException: 
+Line |
+   3 |      1 / 0
+     |      ~~~~~
+     | Attempted to divide by zero.
