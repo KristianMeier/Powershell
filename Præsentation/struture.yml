@@ -1,0 +1,10 @@
+/PowerShellScripts
+  ci.yml
+    /scripts
+        CopyAFolder.ps1
+        DeleteOldFile.ps1
+        DuplicateFile.ps1
+    /pipelines
+        copy-a-folder-pipeline.yml
+        delete-old-file-pipeline.yml
+        duplicate-file-pipeline.yml

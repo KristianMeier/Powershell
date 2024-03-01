@@ -1,0 +1,19 @@
+schedules:
+- cron: "0 0 * * *"
+  displayName: 'Midnight Delete Old File'
+  branches:
+    include:
+    - main
+  always: true
+
+trigger: none
+
+pool:
+  name: 'YourAgentPoolName'
+
+steps:
+- checkout: self
+- script: |
+    powershell -File $(Build.SourcesDirectory)/ `
+    PowerShellScripts/scripts/DeleteOldFile.ps1
+  displayName: 'Delete Old File'

@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - PowerShellScripts/scripts/*
+
+pool:
+  name: 'YourAgentPoolName'
+
+steps:
+- checkout: self
+
+- script: |
+    Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+  displayName: 'Install Analysis Tools'
+
+- script: |
+    # Run analysis on all PowerShell scripts
+    Get-ChildItem -Path $(Build.SourcesDirectory)/ `
+    PowerShellScripts/scripts/*.ps1 -Recurse |
+    ForEach-Object { Invoke-ScriptAnalyzer -Path $_.FullName }
+  displayName: 'Analyze PowerShell Scripts'

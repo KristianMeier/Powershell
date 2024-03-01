@@ -1,0 +1,19 @@
+schedules:
+- cron: "0 * * * *"
+  displayName: 'Hourly Copy Folder'
+  branches:
+    include:
+    - main
+  always: true
+
+trigger: none
+
+pool:
+  name: 'YourAgentPoolName'
+
+steps:
+- checkout: self
+- script: |
+    powershell -File $(Build.SourcesDirectory)/ `
+    PowerShellScripts/scripts/CopyAFolder.ps1
+  displayName: 'Copy A Folder'
